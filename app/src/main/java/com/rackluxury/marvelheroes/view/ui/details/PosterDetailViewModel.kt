@@ -14,20 +14,25 @@
  * limitations under the License.
  */
 
-package com.rackluxury.marvelheroes.utils
+package com.rackluxury.marvelheroes.view.ui.details
 
+import androidx.annotation.VisibleForTesting
+import androidx.databinding.Bindable
+import androidx.lifecycle.viewModelScope
+import com.skydoves.bindables.BindingViewModel
+import com.skydoves.bindables.asBindingProperty
 import com.rackluxury.marvelheroes.model.Poster
+import com.rackluxury.marvelheroes.repository.DetailRepository
+import kotlinx.coroutines.flow.Flow
 
-object MockTestUtil {
+class PosterDetailViewModel(
+  posterId: Long,
+  repository: DetailRepository
+) : BindingViewModel() {
 
-  fun mockPoster() = Poster(
-    id = 0,
-    name = "Deadpool",
-    color = "#770609",
-    quote = "Please don't make the super suit green...or animated!",
-    poster = "https://user-images.githubusercontent.com/24237865/77316284-0a189700-6d01-11ea-9667-096b89a9b958.jpg",
-    details = emptyList()
-  )
+  @VisibleForTesting
+  internal val posterFlow: Flow<Poster> = repository.getPosterById(posterId)
 
-  fun mockPosterList() = listOf(mockPoster())
+  @get:Bindable
+  val poster: Poster? by posterFlow.asBindingProperty(viewModelScope, null)
 }

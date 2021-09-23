@@ -14,24 +14,27 @@
  * limitations under the License.
  */
 
-package com.rackluxury.marvelheroes.network
+package com.rackluxury.marvelheroes.di
 
-import okhttp3.Request
-import okio.Timeout
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.room.Room
+import com.rackluxury.marvelheroes.R
+import com.rackluxury.marvelheroes.persistence.AppDatabase
+import org.koin.android.ext.koin.androidApplication
+import org.koin.dsl.module
 
-object ApiUtil {
+val persistenceModule = module {
 
-  fun <T> getCall(data: T) = object : Call<T> {
-    override fun enqueue(callback: Callback<T>) = Unit
-    override fun isExecuted() = false
-    override fun clone(): Call<T> = this
-    override fun isCanceled() = false
-    override fun cancel() = Unit
-    override fun request(): Request = Request.Builder().build()
-    override fun execute(): Response<T> = Response.success(data)
-    override fun timeout(): Timeout = Timeout.NONE
+  single {
+    Room
+      .databaseBuilder(
+        androidApplication(),
+        AppDatabase::class.java,
+        androidApplication().getString(R.string.database)
+      )
+      .allowMainThreadQueries()
+      .fallbackToDestructiveMigration()
+      .build()
   }
+
+  single { get<AppDatabase>().posterDao() }
 }

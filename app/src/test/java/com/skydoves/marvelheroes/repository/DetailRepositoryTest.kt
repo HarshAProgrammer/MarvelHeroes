@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.skydoves.marvelheroes.repository
+package com.rackluxury.marvelheroes.repository
 
 import app.cash.turbine.test
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.skydoves.marvelheroes.persistence.PosterDao
-import com.skydoves.marvelheroes.utils.MockTestUtil.mockPoster
+import com.rackluxury.marvelheroes.persistence.PosterDao
+import com.rackluxury.marvelheroes.utils.MockTestUtil.mockPoster
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
 import org.junit.Before

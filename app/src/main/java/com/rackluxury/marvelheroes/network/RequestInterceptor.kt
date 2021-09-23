@@ -16,22 +16,15 @@
 
 package com.rackluxury.marvelheroes.network
 
-import okhttp3.Request
-import okio.Timeout
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import okhttp3.Interceptor
+import okhttp3.Response
+import timber.log.Timber
 
-object ApiUtil {
-
-  fun <T> getCall(data: T) = object : Call<T> {
-    override fun enqueue(callback: Callback<T>) = Unit
-    override fun isExecuted() = false
-    override fun clone(): Call<T> = this
-    override fun isCanceled() = false
-    override fun cancel() = Unit
-    override fun request(): Request = Request.Builder().build()
-    override fun execute(): Response<T> = Response.success(data)
-    override fun timeout(): Timeout = Timeout.NONE
+class RequestInterceptor : Interceptor {
+  override fun intercept(chain: Interceptor.Chain): Response {
+    val originalRequest = chain.request()
+    val request = originalRequest.newBuilder().url(originalRequest.url).build()
+    Timber.d(request.toString())
+    return chain.proceed(request)
   }
 }

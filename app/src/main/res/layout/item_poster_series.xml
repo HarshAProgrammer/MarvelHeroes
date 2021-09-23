@@ -7,7 +7,7 @@
 
     <variable
       name="details"
-      type="com.skydoves.marvelheroes.model.PosterDetails" />
+      type="com.rackluxury.marvelheroes.model.PosterDetails" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

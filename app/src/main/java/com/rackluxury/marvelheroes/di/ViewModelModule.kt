@@ -14,24 +14,16 @@
  * limitations under the License.
  */
 
-package com.rackluxury.marvelheroes.network
+package com.rackluxury.marvelheroes.di
 
-import okhttp3.Request
-import okio.Timeout
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.rackluxury.marvelheroes.view.ui.details.PosterDetailViewModel
+import com.rackluxury.marvelheroes.view.ui.main.MainViewModel
+import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 
-object ApiUtil {
+val viewModelModule = module {
 
-  fun <T> getCall(data: T) = object : Call<T> {
-    override fun enqueue(callback: Callback<T>) = Unit
-    override fun isExecuted() = false
-    override fun clone(): Call<T> = this
-    override fun isCanceled() = false
-    override fun cancel() = Unit
-    override fun request(): Request = Request.Builder().build()
-    override fun execute(): Response<T> = Response.success(data)
-    override fun timeout(): Timeout = Timeout.NONE
-  }
+  viewModel { MainViewModel(get()) }
+
+  viewModel { (posterId: Long) -> PosterDetailViewModel(posterId, get()) }
 }

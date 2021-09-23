@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.skydoves.marvelheroes.persistence
+package com.rackluxury.marvelheroes.persistence
 
-import com.skydoves.marvelheroes.utils.MockTestUtil.mockPoster
-import com.skydoves.marvelheroes.utils.MockTestUtil.mockPosterList
+import com.rackluxury.marvelheroes.utils.MockTestUtil.mockPoster
+import com.rackluxury.marvelheroes.utils.MockTestUtil.mockPosterList
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.Is.`is`
 import org.junit.Before

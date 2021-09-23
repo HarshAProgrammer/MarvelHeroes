@@ -14,24 +14,16 @@
  * limitations under the License.
  */
 
-package com.rackluxury.marvelheroes.network
+package com.rackluxury.marvelheroes.model
 
-import okhttp3.Request
-import okio.Timeout
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-object ApiUtil {
-
-  fun <T> getCall(data: T) = object : Call<T> {
-    override fun enqueue(callback: Callback<T>) = Unit
-    override fun isExecuted() = false
-    override fun clone(): Call<T> = this
-    override fun isCanceled() = false
-    override fun cancel() = Unit
-    override fun request(): Request = Request.Builder().build()
-    override fun execute(): Response<T> = Response.success(data)
-    override fun timeout(): Timeout = Timeout.NONE
-  }
-}
+@Parcelize
+data class PosterDetails(
+  val id: Long,
+  val rootId: Long,
+  val name: String,
+  val plot: String,
+  val poster: String
+) : Parcelable

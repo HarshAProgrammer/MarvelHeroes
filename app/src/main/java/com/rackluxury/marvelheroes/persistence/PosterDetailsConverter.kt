@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package com.rackluxury.marvelheroes.network
+package com.rackluxury.marvelheroes.persistence
 
-import okhttp3.Request
-import okio.Timeout
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.room.TypeConverter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.rackluxury.marvelheroes.model.PosterDetails
 
-object ApiUtil {
+class IntegerListConverter {
 
-  fun <T> getCall(data: T) = object : Call<T> {
-    override fun enqueue(callback: Callback<T>) = Unit
-    override fun isExecuted() = false
-    override fun clone(): Call<T> = this
-    override fun isCanceled() = false
-    override fun cancel() = Unit
-    override fun request(): Request = Request.Builder().build()
-    override fun execute(): Response<T> = Response.success(data)
-    override fun timeout(): Timeout = Timeout.NONE
+  @TypeConverter
+  fun fromString(value: String): List<PosterDetails>? {
+    val listType = object : TypeToken<List<PosterDetails>>() {}.type
+    return Gson().fromJson<List<PosterDetails>>(value, listType)
+  }
+
+  @TypeConverter
+  fun fromList(list: List<PosterDetails>): String {
+    val gson = Gson()
+    return gson.toJson(list)
   }
 }

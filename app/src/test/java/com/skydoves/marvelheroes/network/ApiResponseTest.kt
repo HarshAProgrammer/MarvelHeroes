@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.skydoves.marvelheroes.network
+package com.rackluxury.marvelheroes.network
 
 import com.skydoves.sandwich.ApiResponse
 import com.skydoves.sandwich.SandwichInitializer

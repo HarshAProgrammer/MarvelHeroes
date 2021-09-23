@@ -7,7 +7,7 @@
 
     <variable
       name="poster"
-      type="com.skydoves.marvelheroes.model.Poster" />
+      type="com.rackluxury.marvelheroes.model.Poster" />
 
     <variable
       name="veil"

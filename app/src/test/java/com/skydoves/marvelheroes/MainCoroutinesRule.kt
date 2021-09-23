@@ -16,7 +16,7 @@
 
 @file:Suppress("SpellCheckingInspection")
 
-package com.skydoves.marvelheroes
+package com.rackluxury.marvelheroes
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

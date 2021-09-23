@@ -7,7 +7,7 @@ apply from: '../dependencies.gradle'
 android {
   compileSdkVersion versions.compileSdk
   defaultConfig {
-    applicationId "com.skydoves.marvelheroes"
+    applicationId "com.rackluxury.marvelheroes"
     minSdkVersion versions.minSdk
     targetSdkVersion versions.compileSdk
     versionCode versions.versionCode

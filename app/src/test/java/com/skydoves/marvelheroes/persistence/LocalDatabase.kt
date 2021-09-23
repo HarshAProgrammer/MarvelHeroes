@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.skydoves.marvelheroes.persistence
+package com.rackluxury.marvelheroes.persistence
 
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider.getApplicationContext

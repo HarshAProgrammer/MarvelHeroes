@@ -14,24 +14,23 @@
  * limitations under the License.
  */
 
-package com.rackluxury.marvelheroes.network
+package com.rackluxury.marvelheroes.persistence
 
-import okhttp3.Request
-import okio.Timeout
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.rackluxury.marvelheroes.model.Poster
 
-object ApiUtil {
+@Dao
+interface PosterDao {
 
-  fun <T> getCall(data: T) = object : Call<T> {
-    override fun enqueue(callback: Callback<T>) = Unit
-    override fun isExecuted() = false
-    override fun clone(): Call<T> = this
-    override fun isCanceled() = false
-    override fun cancel() = Unit
-    override fun request(): Request = Request.Builder().build()
-    override fun execute(): Response<T> = Response.success(data)
-    override fun timeout(): Timeout = Timeout.NONE
-  }
+  @Insert(onConflict = OnConflictStrategy.REPLACE)
+  fun insertPosterList(posters: List<Poster>)
+
+  @Query("SELECT * FROM Poster WHERE id = :id_")
+  fun getPoster(id_: Long): Poster
+
+  @Query("SELECT * FROM Poster")
+  fun getPosterList(): List<Poster>
 }

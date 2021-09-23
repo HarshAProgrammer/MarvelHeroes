@@ -14,24 +14,16 @@
  * limitations under the License.
  */
 
-package com.rackluxury.marvelheroes.network
+package com.rackluxury.marvelheroes.persistence
 
-import okhttp3.Request
-import okio.Timeout
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.rackluxury.marvelheroes.model.Poster
 
-object ApiUtil {
+@Database(entities = [Poster::class], version = 1, exportSchema = true)
+@TypeConverters(value = [IntegerListConverter::class])
+abstract class AppDatabase : RoomDatabase() {
 
-  fun <T> getCall(data: T) = object : Call<T> {
-    override fun enqueue(callback: Callback<T>) = Unit
-    override fun isExecuted() = false
-    override fun clone(): Call<T> = this
-    override fun isCanceled() = false
-    override fun cancel() = Unit
-    override fun request(): Request = Request.Builder().build()
-    override fun execute(): Response<T> = Response.success(data)
-    override fun timeout(): Timeout = Timeout.NONE
-  }
+  abstract fun posterDao(): PosterDao
 }

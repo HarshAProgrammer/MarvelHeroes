@@ -16,21 +16,21 @@
 
 @file:Suppress("SpellCheckingInspection")
 
-package com.skydoves.marvelheroes.repository
+package com.rackluxury.marvelheroes.repository
 
 import androidx.lifecycle.viewModelScope
 import com.nhaarman.mockitokotlin2.atLeastOnce
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import com.skydoves.marvelheroes.MainCoroutinesRule
-import com.skydoves.marvelheroes.model.Poster
-import com.skydoves.marvelheroes.network.ApiUtil.getCall
-import com.skydoves.marvelheroes.network.MarvelClient
-import com.skydoves.marvelheroes.network.MarvelService
-import com.skydoves.marvelheroes.persistence.PosterDao
-import com.skydoves.marvelheroes.utils.MockTestUtil.mockPosterList
-import com.skydoves.marvelheroes.view.ui.main.MainViewModel
+import com.rackluxury.marvelheroes.MainCoroutinesRule
+import com.rackluxury.marvelheroes.model.Poster
+import com.rackluxury.marvelheroes.network.ApiUtil.getCall
+import com.rackluxury.marvelheroes.network.MarvelClient
+import com.rackluxury.marvelheroes.network.MarvelService
+import com.rackluxury.marvelheroes.persistence.PosterDao
+import com.rackluxury.marvelheroes.utils.MockTestUtil.mockPosterList
+import com.rackluxury.marvelheroes.view.ui.main.MainViewModel
 import com.skydoves.sandwich.ResponseDataSource
 import com.skydoves.sandwich.disposables.CompositeDisposable
 import kotlinx.coroutines.ExperimentalCoroutinesApi

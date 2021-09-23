@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.skydoves.marvelheroes.viewmodel
+package com.rackluxury.marvelheroes.viewmodel
 
 import app.cash.turbine.test
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.skydoves.marvelheroes.MainCoroutinesRule
-import com.skydoves.marvelheroes.model.Poster
-import com.skydoves.marvelheroes.network.MarvelClient
-import com.skydoves.marvelheroes.network.MarvelService
-import com.skydoves.marvelheroes.persistence.PosterDao
-import com.skydoves.marvelheroes.repository.MainRepository
-import com.skydoves.marvelheroes.utils.MockTestUtil
-import com.skydoves.marvelheroes.view.ui.main.MainViewModel
+import com.rackluxury.marvelheroes.MainCoroutinesRule
+import com.rackluxury.marvelheroes.model.Poster
+import com.rackluxury.marvelheroes.network.MarvelClient
+import com.rackluxury.marvelheroes.network.MarvelService
+import com.rackluxury.marvelheroes.persistence.PosterDao
+import com.rackluxury.marvelheroes.repository.MainRepository
+import com.rackluxury.marvelheroes.utils.MockTestUtil
+import com.rackluxury.marvelheroes.view.ui.main.MainViewModel
 import com.skydoves.sandwich.ResponseDataSource
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert

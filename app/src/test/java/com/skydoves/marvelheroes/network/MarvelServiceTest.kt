@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.skydoves.marvelheroes.network
+package com.rackluxury.marvelheroes.network
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.skydoves.marvelheroes.model.Poster
+import com.rackluxury.marvelheroes.model.Poster
 import com.skydoves.sandwich.ApiResponse
 import com.skydoves.sandwich.ResponseDataSource
 import com.skydoves.sandwich.disposables.CompositeDisposable

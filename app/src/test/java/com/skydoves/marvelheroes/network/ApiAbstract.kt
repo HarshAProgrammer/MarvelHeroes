@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.skydoves.marvelheroes.network
+package com.rackluxury.marvelheroes.network
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import okhttp3.mockwebserver.MockResponse
